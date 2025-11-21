@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!----- Fonts ----->
+    <link rel="preload" href="./assets/fonts/AmaticSC/AmaticSC-Regular.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./assets/fonts/AmaticSC/AmaticSC-Bold.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./assets/fonts/GloriaHallelujah/GloriaHallelujah.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./assets/fonts/PatrickHand/PatrickHand-Regular.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./assets/fonts/ShadowsInto/ShadowsIntoLight.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./assets/fonts/RockSalt/RockSalt-Regular.woff2" as="font" crossorigin="anonymous">
+    
+    <link rel="preload" href="./assets/fonts/BitcountGridDouble/BitcountGridDouble-Regular.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./assets/fonts/BitcountGridDouble/BitcountGridDouble-Medium.woff2" as="font" crossorigin="anonymous">
+    
+    
+    <link rel="stylesheet" href="./assets/css/style.min.css">
+    
+    <!-- Useful meta tags -->
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="index, follow">
+    <meta name="google" content="notranslate">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="">
+    
+    <title>Gallery</title>
+  </head>
+
+  <body class="light sb-expanded">
+    <div id="top"></div>
+    <!-- no-scroll -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- =====Заставка======= -->
+    <div class="intro">
+      <div class="intro-loader">
+        <p>THIS ONE GIRL</p>
+        <div class="lds-ellipsis">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page" id="page">
+      <!-- шапка -->
+      <header class="header">
+      	<div class="header__block">
+      		<div class="header__switches">
+      			<div class="header__switches-color color-card-effect header__switches--pink">
+      				<!-- <img src="./assets/images/pink_switch.jpg" alt="pink_switch"> -->
+      			</div>
+      			<div class="header__switches-color color-card-effect header__switches--blue">
+      				
+      				<!-- <img src="./assets/images/blue_switch.jpg" alt="blue_switch"> -->
+      			</div>
+      			<div class="header__switches-color color-card-effect header__switches--green">
+      				<!-- <img src="./assets/images/green_switch.jpg" alt="green_switch"> -->
+      			</div>
+      		</div>
+      		<div class="header__wrap">
+      			<div class="header__left">
+      				<nav class="nav">
+      					<ul class="nav__list nav__list--left">
+      						<li class="nav__item">
+      							<a class="resize-btn resize-btn--header" data-resize-btn>
+      								<i class="bx bx-chevrons-right bx-chevrons-right--none" type="button">
+      						
+      								</i>
+      							</a>
+      						</li>
+      						
+      						<li class="nav__item"><a class="nav__link nav__link--left" href="../index.html">Major</a></li>
+      						<li class="nav__item">
+      							<a class="nav__link nav__link--left" href="#">Clause</a>
+      						</li>
+      			
+      						<li class="nav__item">
+      							<a class="nav__link nav__link--left" href="./../text.html">About me</a>
+      						</li>
+      						
+      					</ul>
+      					<div class="marker-1"></div>
+      				</nav>
+      				<button class="burger" type="button" id="sidebarToggle">
+      					<span>Open navigation</span>
+      				</button>
+      			</div>
+      			<div class="header__right">
+      				<nav class="nav">
+      					<ul class="nav__list nav__list--right">
+      						
+      						
+      						<li class="nav__item">
+      							<a class="nav__link nav__link--right" href="profile.html">Profile</a>
+      						</li>
+      						<li class="nav__item">
+      							<a class="nav__link nav__link--right" href="#">Quit</a>
+      						</li>
+      			
+      					</ul>
+      					<div class="marker-2"></div>
+      				</nav>
+      				<form class="search" action="search.html" method="get">
+      					<input class="search__input" name="search" type="text" placeholder="Blog Search">
+      					<!--placeholder текст внутри вводной строки -->
+      				</form>
+      			</div>
+      		</div>
+      	</div>
+      </header>
+      
+      <script>
+      
+      
+      	document.addEventListener("DOMContentLoaded", function () {
+      		const minSlowScroll = 60;
+      		const maxSlowScroll = 400;
+      		let isSlowScrollActive = true;
+      
+      		function onWheel(e) {
+      			const scrollTop = window.scrollY;
+      
+      			// if (scrollTop < minSlowScroll) {
+      			// 	e.preventDefault();
+      			// 	const amount = e.deltaY * 0.3;
+      			// 	window.scrollBy({ top: amount, behavior: "smooth" });
+      
+      			// }  
+      			if (scrollTop < maxSlowScroll) {
+      				e.preventDefault();
+      				const amount = e.deltaY * 2;
+      				window.scrollBy({ top: amount, behavior: "smooth" });
+      
+      			} else if (isSlowScrollActive) {
+      				window.removeEventListener("wheel", onWheel);
+      				isSlowScrollActive = false;
+      			}
+      		}
+      
+      		window.addEventListener("wheel", onWheel, { passive: false });
+      
+      		window.addEventListener("scroll", () => {
+      			if (window.scrollY < maxSlowScroll && !isSlowScrollActive) {
+      				window.addEventListener("wheel", onWheel, { passive: false });
+      				isSlowScrollActive = true;
+      			}
+      		});
+      	});
+      
+      
+      
+      </script>      <!-- Сайдбар -->
+      
+      
+      <aside class="sidebar" id="sidebar">
+      	
+      	<div class="sidebar__wrapper">
+      		<div class="sidebar__header">
+      		
+      		</div>
+      		<div class="sidebar__content">
+      			<!-- <a class="resize-btn" data-resize-btn>
+      						<i class="bx bx-chevrons-right" type="button">
+      					
+      						</i>
+      					</a> -->
+      
+      					<!-- https://pin.it/66G8U9ZLm -->
+      			<div class="profile">
+      				<!-- <img class="profile__avatar" src="assets/images/ava-blue.jpg" alt="ava"> -->
+      				<div class="profile__header">
+      					<div class="profile__name">Ramona</div>
+      					<div class="profile__prof"> <span>Amazon courier</span></div>
+      		
+      				</div>
+      				<ul class="social">
+      					<li class="social__item">
+      						<a class="social__link fab fa-facebook-f" href="#" target="_blank">
+      							
+      						</a>
+      					</li>
+      					<li class="social__item">
+      						<a class="social__link fab fa-twitter" href="#" target="_blank">
+      							
+      						</a>
+      					</li>
+      					<li class="social__item">
+      						<a class="social__link fab fa-instagram" href="#" target="_blank">
+      							
+      						</a>
+      					</li>
+      		
+      				</ul>
+      				<div class="profile__text">
+      					<p> "Hey, I'm Ramona Flowers — an Amazon courier, indie music lover, and fan of change. I’ve had seven evil
+      						exes, but I’m
+      						just moving forward. Mysterious, independent — get to know me along the way."</p>
+      				</div>
+      			</div>
+      			<!--/.profile-->
+      			<nav class="nav nav--mobile">
+      				<ul class="nav__list">
+      					<li class="nav__item"><a class="nav__link " href="../index.html">Главная</a></li>
+      					<li class="nav__item">
+      						<a class="nav__link has-subnav" href="#">Статьи</a>
+      						<ul class="subnav">
+      							<li><a class="subnav__link" href="#">Создание сайтов</a></li>
+      							<li><a class="subnav__link" href="#">Интернет маркетинг</a></li>
+      							<li><a class="subnav__link" href="#">Продвижение видео</a></li>
+      		
+      						</ul>
+      		
+      					</li>
+      		
+      					<li class="nav__item"><a class="nav__link" href="./../text.html">Обо мне</a></li>
+      					<li class="nav__item"><a class="nav__link" href="#">Реклама</a></li>
+      					<li class="nav__item"><a class="nav__link" href="./../profile.html">Профиль</a></li>
+      					<li class="nav__item"><a class="nav__link" href="#">Выйти</a></li>
+      		
+      				</ul>
+      			</nav>
+      		</div>
+      		<!--/.sidebar__content-->
+      		
+      		<div class="sidebar__footer">
+      		
+      			<a class="btn-red" href="works.html" title="Yep works :("> <span>My Job</span> </a>
+      			<button class="btn-write btn-w" type="button" title="Or not... Just forget" title=""><span>Write me</span></button>
+      		</div>
+      	</div>
+      	
+      </aside>
+      <!-- Main-->
+      <main class="main">
+        <div class="container">
+
+
+
+    <h1 class="gallery-title animation-title">GALLERY</h1>
+
+
+    <div class="grid">
+        <div class="grid__col-sizer"></div>
+        <div class="grid__gutter-sizer"></div>
+
+        <div class="grid-item grid-item--gal-1"><img src="./assets/images/gallery/gal-1.jpg" alt=""></div>
+        
+        <div class="grid-item"><img src="./assets/images/gallery/gal-2.jpg" alt=""></div>
+        <div class="grid-item"><img src="./assets/images/gallery/gal-3.jpg" alt=""></div>
+        <div class="grid-item grid-item--width2"><img src="./assets/images/gallery/gal-4.jpg" alt=""></div>
+        <div class="grid-item"><img src="./assets/images/gallery/gal-5.jpg" alt=""></div>
+        <div class="grid-item"><img src="./assets/images/gallery/gal-6.jpg" alt=""></div>
+        <div class="grid-item grid-item--width2"><img src="./assets/images/gallery/gal-7.jpg" alt=""></div>
+        <div class="grid-item"><img src="./assets/images/gallery/gal-8.jpg" alt=""></div>
+        <div class="grid-item grid-item--gal-9"><img src="./assets/images/gallery/gal-9.jpg" alt=""></div>
+        <div class="grid-item grid-item--width2"><img src="./assets/images/gallery/gal-10.jpg" alt=""></div>
+        <div class="grid-item"><img src="./assets/images/gallery/gal-11.jpg" alt=""></div>
+        <div class="grid-item"><img src="./assets/images/gallery/gal-12.jpg" alt=""></div>
+        <div class="grid-item grid-item--width2"><img src="./assets/images/gallery/gal-13.jpg" alt=""></div>
+        <div class="grid-item"><img src="./assets/images/gallery/gal-14.jpg" alt=""></div>
+        <div class="grid-item"><img src="./assets/images/gallery/gal-15.jpg" alt=""></div>
+        <div class="grid-item grid-item--width2"><img src="./assets/images/gallery/gal-16.jpg" alt=""></div>
+        <div class="grid-item"><img src="./assets/images/gallery/gal-17.jpg" alt=""></div>
+        <div class="grid-item grid-item--width2"><img src="./assets/images/gallery/gal-18.jpg" alt=""></div>
+        <div class="grid-item "><img src="./assets/images/gallery/gal-19.jpg" alt=""></div>
+        <div class="grid-item"><img src="./assets/images/gallery/gal-20.jpg" alt=""></div>
+        <div class="grid-item"><img src="./assets/images/gallery/gal-21.jpg" alt=""></div>
+        <div class="grid-item "><img src="./assets/images/gallery/gal-22.jpg" alt=""></div>
+        <div class="grid-item"><img src="./assets/images/gallery/gal-23.jpg" alt=""></div>
+       
+        <div class="grid-item grid-item--width2"><img src="./assets/images/gallery/gal-24.gif" alt=""></div>
+        <div class="grid-item"><img src="./assets/images/gallery/gal-25.jpg" alt=""></div>
+        <div class="grid-item"><img src="./assets/images/gallery/gal-26.jpg" alt=""></div>
+        <div class="grid-item grid-item--width2"><img src="./assets/images/gallery/gal-27.jpg" alt=""></div>
+        <div class="grid-item grid-item--width2"><img src="./assets/images/gallery/gal-28.jpg" alt=""></div>
+        <div class="grid-item grid-item--width2"><img src="./assets/images/gallery/gal-29.jpg" alt=""></div>
+        <div class="grid-item grid-item--width2"><img src="./assets/images/gallery/gal-30.gif" alt=""></div>
+        <div class="grid-item"><img src="./assets/images/gallery/gal-31.jpg" alt=""></div>
+        <div class="grid-item"><img src="./assets/images/gallery/gal-32.jpg" alt=""></div>
+        
+
+
+        <!-- и так далее -->
+    </div>
+
+    <!-- <div class="page-load-status">
+        <div class="loader-wheel">
+            <i><i><i><i><i><i><i><i><i><i><i><i>
+            </i></i></i></i></i></i></i></i></i></i></i></i>
+        </div>
+        <p class="infinite-scroll-last">End of content</p>
+        <p class="infinite-scroll-error">No more pages to load</p>
+    </div> -->
+    <div class="page-load-status">
+        <div class="loader"></div>
+        <p class="infinite-scroll-last">End of content</p>
+        <p class="infinite-scroll-error">No more pages to load</p>
+    </div>
+
+
+
+   
+    <div class="pagination">
+        <a class="pagination__next" href="./gallery-page2.html"></a>
+
+    </div>
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+
+
+
+
+
+
+
+</div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="footer-content">
+          <div class="footer-filter"></div>
+      
+          <div class="footer-wrapper">
+            <div class="footer-wrapper-line">
+              <div class="footer-wrapper__other"></div>
+              <ul class="footer-wrapper__list">
+                <li class="nav__item">
+                  <a class="footer-nav__link" href="../index.html">MAJOR</a>
+                </li>
+                <li class="nav__item">
+                  <a class="footer-nav__link" href="../gallery.html">GALLERY</a>
+                </li>
+                <li class="nav__item">
+                  <a class="footer-nav__link" href="!#">CALL ME</a>
+                </li>
+                <li class="nav__item">
+                  <a class="footer-nav__link" href="!#">RAMONA</a>
+                </li>
+              </ul>
+              <div class="footer-wrapper__diverse">
+                <button
+                  type="button"
+                  class="footer-heart"
+                  data-toggle-heart="toggle-heart"
+                >
+                  <!-- <img src="./assets/videos/blue-two-hearts.gif" alt="hearts" /> -->
+                </button>
+              </div>
+            </div>
+      
+            <div class="nav__item tg-list-item">
+              <input class="tgl tgl-skewed" id="cb3" type="checkbox" />
+              <label class="tgl-btn" data-tg-off="light" data-tg-on="dark" for="cb3">
+              </label>
+            </div>
+      
+            <video autoplay muted loop playsinline class="footer-video-bg">
+              <source src="./assets/videos/footer-bg-vi.mp4" type="video/mp4" />
+              <!-- <source src="video.webm" type="video/webm">     -->
+            </video>
+      
+            <div class="footer-wrapper__copyright">
+              <span>All rights reserved © 2024 Ramona.com</span>
+              <span
+                >Design and development:
+                <a class="footer-mail" href="mailto:mexiko944@gmail.com"
+                  >mexiko944@gmail.com</a
+                ></span
+              >
+            </div>
+          </div>
+          <div class="bubbles" id="bubbles"></div>
+          <svg style="position: fixed; top: 100vh">
+            <defs>
+              <filter id="blob">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                <feColorMatrix
+                  in="blur"
+                  mode="matrix"
+                  values="1 0 0 0 0
+                              0 1 0 0 0
+                              0 0 1 0 0
+                              0 0 0 19 -9"
+                  result="blob"
+                />
+              </filter>
+            </defs>
+          </svg>
+        </div>
+      </footer>
+      <!-- /Footer -->
+
+      <!-- invis mark -->
+      <div class="sentinel"></div>
+    </div>
+
+    <div class="modal" id="story-modal">
+    <div class="modal__content modal__content--story">
+        <video class="modal__video" src="#" poster="https://place-hold.it/300x500"></video>
+    </div>
+    
+</div> <div class="modal" id="contact-modal">
+    <div class="modal__content modal__content--contact">
+        <button class="modal__close" type="button">
+            <img src="../assets/images/close.svg" alt="Закрыть">
+        </button>
+        <form class="form" action="/" method="post">
+        
+            <div class="form__group form__group--md">
+                <input class="form__control" type="text" placeholder="Ваше имя">
+                <span class="form__line"></span>
+            </div>
+            <div class="form__group form__group--md">
+                <input class="form__control" type="text" placeholder="Ваше email">
+                <span class="form__line"></span>
+            </div>
+            <div class="form__group form__group--md">
+                <textarea class="form__control form__control--textarea" placeholder="Текст сообщения"></textarea>
+                <span class="form__line"></span>
+            </div>
+            <div class="form__footer">
+                <div class="form__group form__group--md">
+                    <button class="btn btn--blue btn--rounded btn--sm" type="submit">Отправить</button>
+                </div>
+              
+            </div>
+        </form>
+        <ul class="modal__footer"> 
+            <li>
+                e-mail: 
+                <a href="mailto:e-mail:">info@mywebsite.ru</a>
+            </li> 
+            <li>
+                тел: 
+                <a href="tel:+94323277777">+943-232-777-77</a>
+            </li> 
+            
+        </ul>
+        
+
+    </div>
+</div> <div class="modal">
+    <div class="modal__content">
+        <button class="modal__close" type="button">
+            <img src="./assets/images/close.svg" alt="закрыть">
+        </button>
+
+    <ul class="social">
+        <li class="social__item">
+            <a class="social__link" href="#">
+                <img src="assets/images/share/facebook.svg" alt="">
+            </a>
+        </li>
+        <li class="social__item">
+            <a class="social__link" href="#">
+                <img src="assets/images/share/twitter.svg" alt="">
+            </a>
+        </li>
+        <li class="social__item">
+            <a class="social__link" href="#" >
+                <img src="assets/images/share/vk.svg" alt="">
+            </a>
+        </li>
+        <li class="social__item">
+            <a class="social__link" href="#" >
+                <img src="assets/images/share/copy.svg" alt="">
+            </a>
+        </li>
+    
+    </ul>
+    </div>
+</div>
+
+    <a href="#top" class="backtop-btn" id="backtop" style="opacity: 1">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        id="Layer_1"
+        style="enable-background: new 0 0 91 91"
+        version="1.1"
+        viewBox="0 0 91 91"
+        xml:space="preserve"
+      >
+        <style type="text/css">
+          .st0 {
+            fill: var(--trident);
+          }
+        </style>
+        <g>
+          <path
+            class="st0"
+            d="M47.3,1.7c-2.2-2.6-6.4-1.5-8.1,1C29.9,17.4,19.4,31.1,5.9,42.2c-3.6,2.9-0.3,7.9,3.4,8.3   c6.1,0.6,12.2,1.1,18.3,1.7c-0.6,5.3-1.1,10.6-1.7,15.8c-0.6,6-2.4,12.8-0.4,18.6c0.6,1.7,2.8,2,3.8,0.5c3.4-5.1,3.4-12.2,4.3-18.1   c1-6.5,2-13.1,2.9-19.6c0.5-3.1-1.2-5.1-4.2-5.5c-4-0.5-7.9-1.1-11.9-1.6c9-8.5,16.7-18.2,23.7-28.5c8.6,10.1,17.4,19.9,26.9,29   c-3.4,0.3-6.8,0.5-10.2,0.8c-2.3,0.2-5.1,2-4.8,4.8c1.4,10.6,2.7,21.2,4.1,31.9c-6.5,0.4-12.9,1.6-19.3,2.2c-4.9,0.4-4.7,6.9,0,7.5   c8.2,1.1,16.2,0.3,24.4-0.1c1.6-0.1,2.7-0.7,3.5-1.6c1.1-0.7,1.9-2,1.6-3.9c-1.1-8.7-2.8-21-4.2-31.7c5.3-0.5,10.6-1,15.8-1.3   c3.8-0.3,6.5-5.1,3.3-8C71.6,30.4,59.5,16,47.3,1.7z"
+          />
+        </g>
+      </svg>
+    </a>
+
+    <script
+      src="https://kit.fontawesome.com/e853770461.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- <script src="./../../src/assets/js/jquery/jquery-3.0.0.min.js"></script> -->
+    <script type="module" src="assets/js/main.js"></script>
+    <script>
+      let intro = document.querySelector(".intro");
+      let introSidebar = document.querySelector(".sidebar");
+      let introHeader = document.querySelector(".header");
+      setTimeout(() => {
+        if (intro) {
+          intro.classList.add("hiddens");
+
+          introSidebar.classList.add("fixed-block");
+          introHeader.classList.add("fixed-block");
+          setTimeout(() => {
+            intro.style.display = "none";
+            introSidebar.classList.add("fixed-block");
+            introHeader.classList.add("fixed-block");
+          }, 1500);
+        }
+      }, 1000);
+    </script>
+    <!-- HEART-FOLLOW -->
+    <script></script>
+  </body>
+</html>
